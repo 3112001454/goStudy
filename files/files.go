@@ -26,4 +26,31 @@ func WriteString(){
 	fmt.Println(l, "string written successfully")
 }
 
+func WriteBytes(){
+	f, err := os.Create("./bytes")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer f.Close()
+	d := []byte{
+		104,
+		101,
+		108,
+		111,
+		32,
+		119,
+		111,
+		114,
+		108,
+		100,
+	}
+	n, err := f.Write(d)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(n, "bytes written successfully")
+}
+
 
